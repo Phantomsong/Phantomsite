@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.App {
+  text-align: center;
+}
+
+body {
+  background-image: url('images/background.png');
+  background-size: 100%;
+  color: #f8f8ff;
+  background-size: cover;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #B200FF;
+  color: #fff;
+  height: 5vw;
+  padding: 15px; /* Increase the padding to make the navbar taller */
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+  font-family: 'Montserrat', sans-serif;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  line-height: 4.5; /* Adjusts the text vertically */
+}
+
+.navbar li {
+  position: relative;
+  margin: 0 20px;
+  width: 150px; /* Set a fixed width for the navbar items */
+}
+
+/* Show the submenu when hovering over the parent li */
+.navbar li:hover .submenu {
+  display: block;
+  width: auto; /* Set the submenu width to auto */
+}
+
+/* Hide the submenu by default, set its width to auto, and adjust white-space */
+.submenu {
+  display: none;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1px;
+  overflow: hidden;
+  width: auto; /* Set the submenu width to auto */
+  white-space: nowrap; /* Allow submenu to expand as needed */
+}
+
+/* Set a background color for submenu items on hover */
+.submenu li:hover {
+  background-color: #000000;
+}
+
+.submenu li {
+  margin: 1px 0;
+}
+
+/* Bolden the text on hover without affecting the layout */
+.navbar li:hover > a {
+  font-weight: bold;
+}
+
+/* Style the subcategory links */
+.submenu a {
+  display: block; /* Make the link a block-level element */
+  padding: 10px;
+  color: #666;
+}
+
+.submenu a:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+nav a:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+body {
+  background-color: #000000;
+}
+
+.App-link {
+  color: #7F14D6;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
