@@ -1,118 +1,188 @@
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
+/* Global styles */
 body {
-  background-image: url('../images/background.png');
-  background-size: cover;
-  color: #f8f8ff;
-  margin: 0;
-  padding: 0;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    color: #f8f8ff;
+    margin: 0;
+    background-color: #000000;
 }
 
-/* Styles for Desktop Navbar */
-.desktop-navbar {
-  background-color: #B200FF;
-  color: #fff;
-  height: 5vw;
-  padding: 15px;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  font-family: 'Montserrat', sans-serif;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  line-height: 4.5;
+/* Header styles */
+.App {
+    text-align: center;
 }
 
-.desktop-navbar li {
-  position: relative;
-  margin: 0 20px;
-  width: 150px;
+.navbar {
+    background-color: #B200FF;
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-/* Show the submenu when hovering over the parent li */
-.desktop-navbar li:hover .submenu {
-  display: block;
-  width: auto;
+.logo {
+    font-size: 18px; /* Decreased font size for mobile */
+    text-transform: uppercase;
 }
 
-/* Hide the submenu by default, set its width to auto, and adjust white-space */
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu .menu-item {
+    position:inherit;
+    width: 200px;
+    cursor: pointer;
+    display: block;
+}
+
+/* Submenu styles */
+.menu .submenu {
+    display: none;
+    position: absolute; /* Change this to position: absolute */
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    padding: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu .menu-item:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    position: relative; /* Add this to make the submenu relative to the parent */
+}
+
+.menu .menu-item:hover .submenu {
+    display: block;
+}
+
 .submenu {
-  display: none;
-  position: absolute;
-  text-align: left;
-  top: 100%;
-  left: 0;
-  background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1px;
-  overflow: hidden;
-  width: auto;
-  white-space: nowrap;
+    display: none;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    padding: 1px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-/* Set a background color for submenu items on hover */
-.submenu li:hover {
-  background-color: #000000;
-}
-
-.submenu li {
-  margin: 1px 0;
-}
-
-/* Bolden the text on hover without affecting the layout */
-.desktop-navbar li:hover > a {
-  font-weight: bold;
-}
-
-/* Style the subcategory links */
 .submenu a {
-  display: block;
-  padding: 10px;
-  color: #666;
+    display: block;
+    padding: 10px;
+    color: #666;
 }
 
 .submenu a:hover {
-  background-color: #000000;
-  color: #FFFFFF;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
-/* Styles for Mobile Topnav */
-.mobile-topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-  display: none;
+/* Navigation links */
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
 }
 
-.mobile-topnav #myLinks {
-  display: block;
+/* Mobile menu styles */
+.mobile-menu {
+    display: none;
 }
 
-.mobile-topnav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
+.hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px; /* Adjusted font size for the hamburger icon */
+    padding: 10px; /* Added padding to the hamburger */
+    margin-right: 30px;
 }
 
-.mobile-topnav a.icon {
-  background: black;
-  display: none;
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin: 4px 0;
 }
 
-.mobile-topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+@media screen and (max-width: 768px) {
+    .menu.desktop {
+        display: none;
+    }
 
-.active {
-  background-color: #04AA6D;
-  color: white;
+    .mobile-menu {
+        display: flex;
+        align-items: center; /* Center the hamburger menu vertically */
+    }
+
+    .mobile-dropdown {
+        display: none;
+        background-color: #B200FF;
+        position: absolute;
+        width: 100%;
+        top: 100%; /* Push the mobile-dropdown menu below the navbar */
+        right: 0; /* Align the right edge of the mobile-dropdown menu with the screen edge */
+        list-style: none;
+    }
+
+    .mobile-dropdown a {
+        color: white;
+    }
+
+    .mobile-dropdown .menu-item.open .submenu {
+        background-color: #B200FF;
+        display: block;
+        position: relative;
+        top: 0;
+        width: 100%;
+    }
+
+    .mobile-dropdown ul {
+        padding: 0;
+    }
+
+    .mobile-dropdown .logo {
+        text-align: center;
+    }
+
+    .mobile-dropdown .logo a {
+        color: white;
+    }
+
+    .mobile-dropdown .menu-item {
+        cursor: pointer;
+        margin: 10%;
+    }
+
+    .mobile-dropdown .menu-item:hover {
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+    .mobile-dropdown .menu-item a:hover {
+        background-color: #000000;
+        color: #FFFFFF;
+        display: block;
+    }
+
+    .mobile-dropdown .menu-item.open ul.submenu {
+        display: block;
+    }
 }

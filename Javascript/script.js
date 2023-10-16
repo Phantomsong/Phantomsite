@@ -1,20 +1,23 @@
-// JavaScript to toggle between desktop and mobile navigation bars
-function toggleNavbar() {
-  const desktopNavbar = document.getElementById("desktopNavbar");
-  const mobileTopnav = document.getElementById("mobileTopnav");
-  const screenWidth = window.innerWidth;
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById('hamburger');
+  const mobileDropdown = document.getElementById('mobile-dropdown');
 
-  if (screenWidth <= 767) {
-    // Display the mobile navigation
-    desktopNavbar.style.display = "none";
-    mobileTopnav.style.display = "block";
-  } else {
-    // Display the desktop navigation
-    desktopNavbar.style.display = "block";
-    mobileTopnav.style.display = "none";
-  }
-}
+  console.log("DOM is ready!");
 
-// Call the toggleNavbar function when the page loads and when the window is resized
-toggleNavbar();
-window.addEventListener("resize", toggleNavbar);
+  hamburger.addEventListener('click', () => {
+      console.log("Hamburger clicked!");
+      if (mobileDropdown.style.display === 'block') {
+          mobileDropdown.style.display = 'none';
+      } else {
+          mobileDropdown.style.display = 'block';
+      }
+  });
+
+  const mobileDropdownItems = document.querySelectorAll('.mobile-dropdown > li');
+  mobileDropdownItems.forEach(item => {
+      item.addEventListener('click', () => {
+          console.log("Mobile dropdown item clicked!");
+          item.classList.toggle('open');
+      });
+  });
+});
